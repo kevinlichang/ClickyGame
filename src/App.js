@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ClickImage from "./components/ClickImage";
 import images from "./images.json";
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -10,24 +9,29 @@ class App extends Component {
     images
   }
 
+  // 
+  displayRandom = () => {
+
+  }
+
+  clickImage = id => {
+    // filter the clicked image id into new array
+  }
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <div className="image-container container-fluid">
+          {this.state.images.map(image => (
+            <ClickImage
+              key={image.id}
+              id={image.id}
+              name={image.name}
+              image={image.image}
+            />
+          ))}
+
+        </div>
       </div>
     );
   }

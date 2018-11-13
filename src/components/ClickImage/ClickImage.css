@@ -1,0 +1,10 @@
+img {
+  width: 200px;
+
+}
+
+img:hover {
+  cursor: pointer;  
+  border: gray;
+  border-style: solid;
+}
