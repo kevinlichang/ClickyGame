@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
+import ClickImage from "./components/ClickImage";
+import images from "./images.json";
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  // set this.state.images to the images json
+  state = {
+    images
+  }
+
+
   render() {
     return (
       <div className="App">

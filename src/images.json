@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "name": "Abra",
+    "image": "./public/Images/abra.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Charmander",
+    "image": "./public/Images/charmander.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Chikorita",
+    "image": "./public/Images/chikorita.png"
+
+  },
+  {
+    "id": 4,
+    "name": "Cyndaquil",
+    "image": "./public/Images/cyndaquil.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Eevee",
+    "image": "./public/Images/eevee.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Gengar",
+    "image": "./public/Images/gengar.png"
+  },
+  {
+    "id": 7,
+    "name": "Mareep",
+    "image": "./public/Images/mareep.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Pikachu",
+    "image": "./public/Images/pikachu.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Scizor",
+    "image": "./public/Images/scizor.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Spinda",
+    "image": "./public/Images/spinda.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Squirtle",
+    "image": "./public/Images/squirtle.png"
+  },
+  {
+    "id": 12,
+    "name": "Totodile",
+    "image": "./public/Images/totodile.png"
+  }
+]
