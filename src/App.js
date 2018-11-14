@@ -10,13 +10,31 @@ class App extends Component {
     images,
     score: 0,
     message: "Click an image to begin!",
-    clickedImgArray: []
+    clickedImgIdArr: [],
+    topScore: 0
 
   }
 
   // 
-  displayRandom = () => {
+  randomArray = (array) => {
+  
+    var currentIndex = array.length, temporaryValue, randomIndex;
+  
 
+    while (0 !== currentIndex) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+  
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+  
+    return array;  
+    
   }
 
   clickedImg = id => {
@@ -25,35 +43,50 @@ class App extends Component {
       return pic.id
     });
 
-    if (this.state.clickedImgArray.includes(id) === false) {
+    if (this.state.clickedImgIdArr.includes(id) === false) {
       const pickedImgId = imageIds.filter(picId => picId === id);
       console.log(pickedImgId);
 
-      let newArray = this.state.clickedImgArray.concat(pickedImgId);
+      let newArray = this.state.clickedImgIdArr.concat(pickedImgId);
 
       // Set state to new array and increase score by 1
       this.setState({ 
         score: this.state.score + 1,
         message: "You guessed correctly!",
-        clickedImgArray: newArray
+        clickedImgIdArr: newArray
       });
       console.log(newArray);
+      
 
-
-    } else if (this.state.clickedImgArray.includes(id) === true) {
+    } else if (this.state.clickedImgIdArr.includes(id) === true) {
       this.setState({ 
         score: 0,
         message: "You guessed incorrectly!",
-        clickedImgArray: []
+        clickedImgIdArr: []
       });
-      console.log(this.state.clickedImgArray)
+      console.log(this.state.clickedImgIdArr)
     }
+    
+    const shuffledArr = this.randomArray(this.state.images);
+    this.setState({
+      images: shuffledArr
+    })
   }
+
+  // Setting Top Score
+  topScoreHandler = () => {
+    let { score, topScore } = this.state;
+    if (topScore < score) {
+      this.setState({
+        topScore: topScore + 1
+      });
+    };
+  };
 
   render() {
     return (
       <div>
-        <Navbar message={this.state.message} score={this.state.score} />
+        <Navbar message={this.state.message} score={this.state.score} topScore={this.state.topScore}/>
         <div className="image-container container">
           {this.state.images.map(image => (
             <ClickImage
